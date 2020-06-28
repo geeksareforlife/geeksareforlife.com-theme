@@ -10,8 +10,11 @@
     {{- if .Keywords }}
     <meta name="keywords" content="{{ delimit .Keywords "," }}" />
     {{ end -}}
-    {{- if .Params.Author }}
-    <meta name="author" content="{{ .Params.Author}}" />
+    {{- if .Site.Params.Author }}
+    <meta name="author" content="{{ .Site.Params.Author}}" />
+    {{ end -}}
+    {{- if .Site.Params.Copyright }}
+    <meta name="copyright" content="{{ .Site.Params.Copyright}}" />
     {{ end -}}
     {{ hugo.Generator }}
 
@@ -22,4 +25,6 @@
         {{- $styles := $styles| minify | fingerprint | resources.PostProcess -}}
     <link rel="stylesheet" href="{{ $styles.Permalink }}" integrity="{{ $styles.Data.Integrity }}">
     {{ end -}}
+
+    <script src="https://kit.fontawesome.com/b7108c7315.js" crossorigin="anonymous"></script>
 </head>
