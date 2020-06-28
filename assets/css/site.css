@@ -1,3 +1,40 @@
-.starter {
-  color: blue;
+.nav-colour {
+	@apply bg-red-800;
+}
+
+.nav-colour a,
+.nav-colour .link {
+	@apply text-white;
+}
+
+a, .link {
+	@apply text-red-800;
+}
+
+a:hover,
+.link:hover {
+	@apply text-orange-400 underline;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	@apply text-red-800 font-bold;
+}
+
+h1 {
+  @apply text-3xl;
+}
+h2 {
+  @apply text-2xl;
+}
+h3 {
+  @apply text-xl;
+}
+h4 {
+  @apply text-lg;
+}
+h5 {
+	@apply text-base;
+}
+h6 {
+  @apply text-sm;
 }

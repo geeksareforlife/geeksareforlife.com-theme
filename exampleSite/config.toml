@@ -5,6 +5,8 @@ languageCode = "en-us"
 baseurl = "http://www.geeksareforlife.com/"
 title = "GeeksAreForLife Theme Testing"
 
+enableGitInfo = true
+
 # Code higlighting settings
 pygmentsCodefences = true
 pygmentsStyle = "vs"
