@@ -48,12 +48,11 @@
                 {{ end }}
             </ul>
             <div class="mt-4 sm:mt-0 sm:flex sm:space-x-4">
-                <a href="https://www.github.com/geeksareforlife" class="block items-center text-2xl">
-                    <span class="fab fa-github" title="Go to Github"></span>
+                {{ range .Site.Params.RelMe }}
+                <a href="{{ .href }}" class="block items-center text-2xl" rel="me">
+                    <span class="{{ .icon }}" title="{{ .cta }}"></span>
                 </a>
-                <a href="https://www.twitter.com/geeksareforlife" class="block items-center text-2xl">
-                    <span class="fab fa-twitter" title="Go to Twitter"></span>
-                </a>
+                {{ end }}
             </div>
         </div>
     </nav>

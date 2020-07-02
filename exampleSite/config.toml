@@ -8,9 +8,38 @@ title = "GeeksAreForLife Theme Testing"
 enableGitInfo = true
 
 # Code higlighting settings
-pygmentsCodefences = true
-pygmentsStyle = "vs"
+[markup]
+  [markup.highlight]
+    codeFences = true
+    guessSyntax = false
+    hl_Lines = ""
+    lineNoStart = 1
+    lineNos = false
+    lineNumbersInTable = true
+    noClasses = true
+    style = "monokai"
+    tabWidth = 4
 
 [params]
-    Author = "James Hayward"
-	Copyright = "Copyright © 2020, James Hayward, all rights reserved."
+    author = "James Hayward"
+	copyright = "Copyright © 2020, James Hayward, all rights reserved."
+
+	[[params.relme]]
+		cta = "Go To GitHub"
+		icon = "fab fa-github"
+		href = "https://www.github.com/geeksareforlife"
+
+	[[params.relme]]
+		cta = "Go To Twitter"
+		icon = "fab fa-twitter"
+		href = "https://www.twitter.com/geeksareforlife"
+
+	[[params.relme]]
+		cta = "Go To Keybase"
+		icon = "fab fa-keybase"
+		href = "https://www.keybase.com/geeksareforlife"
+
+	[[params.relme]]
+		cta = "Email Me"
+		icon = "far fa-at"
+		href = "mailto:website@geeksareforlife.com"

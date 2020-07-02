@@ -10,8 +10,10 @@
     {{- if .Keywords }}
     <meta name="keywords" content="{{ delimit .Keywords "," }}" />
     {{ end -}}
-    {{- if .Site.Params.Author }}
-    <meta name="author" content="{{ .Site.Params.Author}}" />
+    {{- if .Params.author }}
+    <meta name="author" content="{{ .Params.author}}" />
+    {{- else if .Site.Params.author }}
+    <meta name="author" content="{{ .Site.Params.author}}" />
     {{ end -}}
     {{- if .Site.Params.Copyright }}
     <meta name="copyright" content="{{ .Site.Params.Copyright}}" />
@@ -26,5 +28,6 @@
     <link rel="stylesheet" href="{{ $styles.Permalink }}" integrity="{{ $styles.Data.Integrity }}">
     {{ end -}}
 
+    <link rel="stylesheet" href="/css/syntax.css">
     <script src="https://kit.fontawesome.com/b7108c7315.js" crossorigin="anonymous"></script>
 </head>
