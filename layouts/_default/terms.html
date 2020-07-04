@@ -1,0 +1,7 @@
+{{ define "main" }}
+<h1><span class="far fa-tags"></span> {{ .Data.Plural | title }}</h1>
+<ul>
+{{ range .Data.Terms.Alphabetical }}
+  <li class="text-xl mb-2"><a href="{{ .Page.Permalink }}">{{ .Page.Title }}</a> ({{ .Count }})</li>
+{{ end }}
+{{ end }}

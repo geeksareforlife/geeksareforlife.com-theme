@@ -12,11 +12,8 @@ sectionPagesMenu = "main"
 [permalinks]
   posts = "/:year/:month/:day/:slug/"
 
-[[menu.main]]
-  identifier = "now"
-  name = "Now"
-  url = "/now/"
-  weight = -110
+[taxonomies]
+  tag = "tags"
 
 # Code higlighting settings
 [markup]
@@ -30,6 +27,12 @@ sectionPagesMenu = "main"
     noClasses = true
     style = "monokai"
     tabWidth = 4
+
+[[menu.main]]
+  identifier = "now"
+  name = "Now"
+  url = "/now/"
+  weight = -110
 
 [params]
   author = "James Hayward"
