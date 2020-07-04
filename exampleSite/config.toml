@@ -7,6 +7,17 @@ title = "GeeksAreForLife Theme Testing"
 
 enableGitInfo = true
 
+sectionPagesMenu = "main"
+
+[permalinks]
+  posts = "/:year/:month/:day/:slug/"
+
+[[menu.main]]
+  identifier = "now"
+  name = "Now"
+  url = "/now/"
+  weight = -110
+
 # Code higlighting settings
 [markup]
   [markup.highlight]
@@ -21,25 +32,25 @@ enableGitInfo = true
     tabWidth = 4
 
 [params]
-    author = "James Hayward"
-	copyright = "Copyright © 2020, James Hayward, all rights reserved."
+  author = "James Hayward"
+  copyright = "Copyright © 2020, James Hayward, all rights reserved."
 
-	[[params.relme]]
-		cta = "Go To GitHub"
-		icon = "fab fa-github"
-		href = "https://www.github.com/geeksareforlife"
+  [[params.relme]]
+    cta = "Go To GitHub"
+    icon = "fab fa-github"
+    href = "https://www.github.com/geeksareforlife"
 
-	[[params.relme]]
-		cta = "Go To Twitter"
-		icon = "fab fa-twitter"
-		href = "https://www.twitter.com/geeksareforlife"
+  [[params.relme]]
+    cta = "Go To Twitter"
+    icon = "fab fa-twitter"
+    href = "https://www.twitter.com/geeksareforlife"
 
-	[[params.relme]]
-		cta = "Go To Keybase"
-		icon = "fab fa-keybase"
-		href = "https://www.keybase.com/geeksareforlife"
+  [[params.relme]]
+    cta = "Go To Keybase"
+    icon = "fab fa-keybase"
+    href = "https://www.keybase.com/geeksareforlife"
 
-	[[params.relme]]
-		cta = "Email Me"
-		icon = "far fa-at"
-		href = "mailto:website@geeksareforlife.com"
+  [[params.relme]]
+    cta = "Email Me"
+    icon = "far fa-at"
+    href = "mailto:website@geeksareforlife.com"

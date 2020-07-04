@@ -36,14 +36,10 @@
 
         <div id="nav-menu" class="w-full block flex-grow sm:flex sm:items-center sm:w-auto hidden">
             <ul class="w-full flex-grow sm:flex sm:items-center sm:w-auto mt-6 sm:mt-0 sm:divide-x">
-                {{ with .Site.GetPage "/about" }}
-                <li>
-                    <a href="{{ .Permalink }}" class="sm:px-3">{{ .Title }}</a>
-                </li>
-                {{ end }}
-                {{ range .Site.Sections }}
-                <li>
-                    <a href="{{ .Permalink }}" class="sm:px-3">{{ .Title }}</a>
+                {{ $currentPage := . }}
+                {{ range .Site.Menus.main }}
+                <li {{- if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }} class="current"{{end}}>
+                    <a href="{{ .URL }}" class="sm:px-3">{{ .Name }}</a>
                 </li>
                 {{ end }}
             </ul>

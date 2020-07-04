@@ -2,12 +2,12 @@
 <html lang='{{ .Site.LanguageCode }}'>
     {{ partial "head.html" . }}
     <body>
-        {{- partial "dev-size-indicator.html" . -}}
+        {{- partialCached "dev-size-indicator.html" . -}}
         {{- partial "header.html" . -}}
         <main class="mx-4 md:mx-10 lg:mx-16 xl:mx-24 mt-4 lg:mt-8">
         {{- block "main" . }}{{- end }}
         </main>
         {{- partial "dev-parameters.html" . -}}
-        {{- partial "footer.html" . -}}
+        {{- partialCached "footer.html" . -}}
     </body>
 </html>
