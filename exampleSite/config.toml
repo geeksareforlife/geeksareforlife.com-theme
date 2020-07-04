@@ -35,6 +35,8 @@ sectionPagesMenu = "main"
   author = "James Hayward"
   copyright = "Copyright © 2020, James Hayward, all rights reserved."
 
+  mainSections = ["posts"]
+
   [[params.relme]]
     cta = "Go To GitHub"
     icon = "fab fa-github"
@@ -53,4 +55,4 @@ sectionPagesMenu = "main"
   [[params.relme]]
     cta = "Email Me"
     icon = "far fa-at"
-    href = "mailto:website@geeksareforlife.com"
+    href = "mailto:hi@geeksareforlife.com"

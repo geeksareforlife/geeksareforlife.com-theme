@@ -1,8 +1,8 @@
 ---
 title: "Buzzer Project"
 date: 2014-02-23
-thumb: "/assets/images/2014/02/buzzer-thumbnail.jpg"
-hero: "/assets/images/2014/02/buzzer-hero.jpg"
+thumb: "/images/2014/02/buzzer-thumbnail.jpg"
+hero: "/images/2014/02/buzzer-hero.jpg"
 summary: "Short deadlines are the mother of all inventions! Here I build a quiz-syle buzzer for work."
 tags: [laser, work]
 ---

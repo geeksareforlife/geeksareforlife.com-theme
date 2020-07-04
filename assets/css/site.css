@@ -1,23 +1,9 @@
-.nav-colour {
-	@apply bg-red-800;
-}
-
-.nav-colour a,
-.nav-colour .link {
-	@apply text-white;
-}
-
-a, .link {
-	@apply text-red-800;
-}
-
-a:hover,
-.link:hover {
-	@apply text-orange-400 underline;
+html {
+  @apply font-main;
 }
 
 h1, h2, h3, h4, h5, h6 {
-	@apply text-red-800 font-bold mb-6;
+  @apply text-red-800 font-bold mb-6;
 }
 
 h1 {
@@ -33,7 +19,7 @@ h4 {
   @apply text-lg;
 }
 h5 {
-	@apply text-base;
+  @apply text-base;
 }
 h6 {
   @apply text-sm;
@@ -41,9 +27,29 @@ h6 {
 
 article p,
 article .highlight {
-  @apply mb-4;
+  @apply mb-4 leading-relaxed;
 }
 
 .highlight pre {
   @apply overflow-auto;
 }
+
+.nav-colour {
+	@apply bg-red-800;
+}
+
+.nav-colour a,
+.nav-colour .link {
+	@apply text-white;
+}
+
+a, .link {
+	@apply text-red-800;
+}
+
+a:hover,
+.link:hover,
+a:hover * {
+	@apply text-orange-400 underline;
+}
+

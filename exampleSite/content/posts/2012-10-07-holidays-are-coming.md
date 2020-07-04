@@ -1,8 +1,8 @@
 ---
 title: "Holidays are Coming"
 date: 2012-10-07
-thumb: "/assets/images/2012/10/snowflake-thumbnail.jpg"
-hero: "/assets/images/2012/10/snowflake-hero.jpg"
+thumb: "/images/2012/10/snowflake-thumbnail.jpg"
+hero: "/images/2012/10/snowflake-hero.jpg"
 summary: "Thinking about Christmas presents and laser cutters."
 tags: [laser, christmas]
 ---
