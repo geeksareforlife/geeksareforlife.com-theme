@@ -21,7 +21,7 @@
     {{ .Summary }}
   </p>
   {{ with .Params.tags }}
-  <ul id="tags" class="mt-6">
+  <ul id="tags" class="ml-0 mt-6">
   {{ range . }}
     {{ partial "tag.html" . }}
   {{ end }}
