@@ -58,3 +58,10 @@ a:hover * {
 	@apply text-orange-400 underline;
 }
 
+article ul {
+  @apply list-disc list-outside ml-8;
+}
+
+article li {
+  @apply;
+}

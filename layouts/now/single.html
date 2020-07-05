@@ -11,6 +11,39 @@
       <p class="mb-2 leading-6">This page lets you know what I am focused right now. Sort of - it is almost certianly out of date, even if I've updated it today!</p>
       <p class="leading-7">For more info see <a href="https://nownownow.com/about">The Now Movement</a>, built by <a href="https://sivers.org/">Derek Sivers</a>.</p>
     </div>
+
+    <div class="max-w-sm lg:max-w-none rounded shadow-lg mx-auto mb-4 p-3 border-gray-400 border">
+      <h3>Some Durations</h3>
+      <p class="mb-6 leading-6">What is life but a series of experiences? Here are some things that I have been doing, or did, for a while...</p>
+
+      <ul>
+      {{ range sort .Params.durations "start" "desc" }}
+        <li>
+          {{ .name }}
+          {{ if .end }}
+            {{ $endTime := time .end }}
+            {{ $delta := $endTime.Sub (time .start) }}
+            {{ $duration := 0 }}
+            {{ if eq .precision "year" }}
+              {{ $duration = int (div $delta.Hours 8760) }}
+            {{ else if eq .precision "month" }}
+              {{ $duration = int (div $delta.Hours 730.001) }}
+            {{ end }}
+            for
+            {{ if gt $duration 1 }}
+              {{ $duration }} {{ .precision | pluralize }}
+            {{ else }}
+              a {{ .precision }}
+            {{ end }}
+          {{ else }}
+            since
+            {{ if eq .precision "day" }}{{ dateFormat "1" .start | humanize }}{{ end }}
+            {{ dateFormat "January 2006" .start }}
+          {{ end }}
+        </li>
+      {{ end }}
+      </ul>
+    </div>
   </aside>
 </div>
 {{ end }}
