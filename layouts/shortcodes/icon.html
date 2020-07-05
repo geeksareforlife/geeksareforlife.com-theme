@@ -1,0 +1,9 @@
+{{ $class := "fas" -}}
+{{- with .Get 1 -}}
+  {{- if eq "regular" . -}}
+    {{- $class = "far" -}}
+  {{- else if eq "light" -}}
+    {{- $class = "fal" -}}
+  {{- end -}}
+{{- end -}}
+<span class="{{ $class }} fa-{{ .Get 0 }}"></span>
