@@ -17,7 +17,7 @@
       {{ with .Params.tags }}
       <ul id="tags" class="mt-6">
       {{ range . }}
-        <li class="inline-block bg-red-800 rounded-full px-3 py-1 text-sm font-semibold mr-2 mb-3"> <a class="text-white hover:text-white" href="{{ "tags/" | absURL }}{{ . | urlize }}"><span class="far fa-tag"></span> {{ . }}</a> </li>
+        {{ partial "tag.html" . }}
       {{ end }}
       </ul>
       {{ end }}
