@@ -5,7 +5,7 @@
     </h2>
   </a>
   <div class="text-sm leading-5 text-gray-500">
-    <time datetime="2020-03-16">
+    <time datetime="{{ .Date.Format "2006-01-02" }}">
       {{ .Date.Format "January" }}
       {{ .Date.Format "2" | humanize}},
       {{ .Date.Format "2006" }}
