@@ -20,6 +20,8 @@
     {{ end -}}
     {{ hugo.Generator }}
 
+    <link rel="authorization_endpoint" href="https://indieauth.com/auth">
+    
     <link href="https://fonts.googleapis.com/css?family=Oxygen:300,400,700" rel="stylesheet">
 
     {{- $styles := resources.Get "css/styles.css" | postCSS (dict "config" "./assets/css/postcss.config.js") -}}
