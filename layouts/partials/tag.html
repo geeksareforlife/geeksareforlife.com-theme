@@ -1,1 +1,5 @@
-<li class="inline-block bg-red-800 rounded-full px-3 py-1 text-sm font-semibold mr-2 mb-1"> <a class="text-white hover:text-white" href="/tags/{{ . | urlize }}"><span class="far fa-tag mr-1"></span> {{ . }}</a> </li>
+<li class="inline-block">
+  <a class="bg-red-800 border border-red-800 hover:bg-white text-white hover:text-red-800 rounded-full px-3 py-1 text-sm font-semibold mr-2 mb-1 hover:no-underline" href="/tags/{{ . | urlize }}">
+    <span class="far fa-tag mr-1"></span> {{ . }}
+  </a>
+</li>

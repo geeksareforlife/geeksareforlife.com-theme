@@ -1,5 +1,5 @@
 html {
-  @apply font-main;
+  @apply font-main text-gray-900;
 }
 
 figure img,
@@ -53,8 +53,7 @@ a, .link {
 }
 
 a:hover,
-.link:hover,
-a:hover * {
+.link:hover {
 	@apply text-orange-400 underline;
 }
 
