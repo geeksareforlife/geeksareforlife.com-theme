@@ -22,6 +22,8 @@
   <meta property="og:image" content="{{ $pageImage }}" />
    
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="{{ .Site.Params.Twitter }}">
+  <meta name="twitter:creator" content="{{ .Params.Twitter | default .Site.Params.Twitter }}">
   <meta name="twitter:domain" value="{{ replaceRE "^https?://([^/]+).*" "$1" .Site.BaseURL }}" />
   <meta name="twitter:title" value="{{- partial "title.html" . -}}" />
   <meta name="twitter:description" value="{{ .Description | default .Summary | default .Site.Params.Description }}" />
@@ -30,4 +32,6 @@
 {{- if eq .Type "posts" }}
   <meta name="twitter:label1" value="Reading Time" />
   <meta name="twitter:data1" value="{{ .ReadingTime }} mins" />
+  <meta name="twitter:label1" value="Published" />
+  <meta name="twitter:data1" value="{{ .Date.Format "Mon Jan 2, 2006" }}" />
 {{ end -}}
