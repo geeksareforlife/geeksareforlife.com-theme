@@ -32,6 +32,6 @@
 {{- if eq .Type "posts" }}
   <meta name="twitter:label1" value="Reading Time" />
   <meta name="twitter:data1" value="{{ .ReadingTime }} mins" />
-  <meta name="twitter:label1" value="Published" />
-  <meta name="twitter:data1" value="{{ .Date.Format "Mon Jan 2, 2006" }}" />
+  <meta name="twitter:label2" value="Published" />
+  <meta name="twitter:data2" value="{{ .Date.Format "Mon Jan 2, 2006" }}" />
 {{ end -}}
