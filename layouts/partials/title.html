@@ -1,0 +1,5 @@
+{{- if eq .Title .Site.Title -}}
+  {{- .Title -}}
+{{- else -}}
+  {{- .Title }} &middot; {{ .Site.Title -}}
+{{- end -}}

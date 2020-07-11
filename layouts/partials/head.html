@@ -1,37 +1,39 @@
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{{ block "title" . }}
-    {{- .Title }} - {{ .Site.Title -}}
-    {{ end }}</title>
-    {{- if .Description }}
-    <meta name="description" content="{{ .Description }}" />
-    {{ end -}}
-    {{- if .Keywords }}
-    <meta name="keywords" content="{{ delimit .Keywords "," }}" />
-    {{ end -}}
-    {{- if .Params.author }}
-    <meta name="author" content="{{ .Params.author}}" />
-    {{- else if .Site.Params.author }}
-    <meta name="author" content="{{ .Site.Params.author}}" />
-    {{ end -}}
-    {{- if .Site.Params.Copyright }}
-    <meta name="copyright" content="{{ .Site.Params.Copyright}}" />
-    {{ end -}}
-    {{ hugo.Generator }}
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{{ block "title" . }}
+    {{- partial "title.html" . -}}
+  {{ end }}</title>
+  {{- if .Description }}
+  <meta name="description" content="{{ .Description }}" />
+  {{ end -}}
+  {{- if .Keywords }}
+  <meta name="keywords" content="{{ delimit .Keywords "," }}" />
+  {{ end -}}
+  {{- if .Params.author }}
+  <meta name="author" content="{{ .Params.author}}" />
+  {{- else if .Site.Params.author }}
+  <meta name="author" content="{{ .Site.Params.author}}" />
+  {{ end -}}
+  {{- if .Site.Params.Copyright }}
+  <meta name="copyright" content="{{ .Site.Params.Copyright}}" />
+  {{ end -}}
+  {{ hugo.Generator }}
 
-    <link rel="authorization_endpoint" href="https://indieauth.com/auth">
-    
-    <link href="https://fonts.googleapis.com/css?family=Oxygen:300,400,700" rel="stylesheet">
+  {{ partial "unfurl.html" . }}
 
-    {{- $styles := resources.Get "css/styles.css" | postCSS (dict "config" "./assets/css/postcss.config.js") -}}
-    {{- if .Site.IsServer }}
-    <link rel="stylesheet" href="{{ $styles.RelPermalink }}">
-    {{ else }}
-        {{- $styles := $styles| minify | fingerprint | resources.PostProcess -}}
-    <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}">
-    {{ end -}}
+  <link rel="authorization_endpoint" href="https://indieauth.com/auth">
+  
+  <link href="https://fonts.googleapis.com/css?family=Oxygen:300,400,700" rel="stylesheet">
 
-    <link rel="stylesheet" href="/css/syntax.css">
-    <script src="https://kit.fontawesome.com/b7108c7315.js" crossorigin="anonymous"></script>
+  {{- $styles := resources.Get "css/styles.css" | postCSS (dict "config" "./assets/css/postcss.config.js") -}}
+  {{- if .Site.IsServer }}
+  <link rel="stylesheet" href="{{ $styles.RelPermalink }}">
+  {{ else }}
+      {{- $styles := $styles| minify | fingerprint | resources.PostProcess -}}
+  <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}">
+  {{ end -}}
+
+  <link rel="stylesheet" href="/css/syntax.css">
+  <script src="https://kit.fontawesome.com/b7108c7315.js" crossorigin="anonymous"></script>
 </head>

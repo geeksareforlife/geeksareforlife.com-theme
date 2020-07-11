@@ -1,0 +1,33 @@
+{{/* 
+  Not using the Hugo internal Twitter cards partial as I would like more control
+
+  The following should work for:
+  - Twitter
+  - Facebook
+  - Slack
+
+  Using info from https://medium.com/slack-developer-blog/everything-you-ever-wanted-to-know-about-unfurling-but-were-afraid-to-ask-or-how-to-make-your-e64b4bb9254
+ */}}
+{{- $pageImage := "" -}}
+{{- if (and (eq .Type "posts") (isset .Params "hero")) -}}
+  {{- $pageImage = (.Params.hero | absURL) -}}
+{{- else -}}
+  {{- $pageImage = "/images/heroimage.png" | absURL -}}
+{{- end -}}
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="{{ .Permalink }}" />
+  <meta property="og:title" content="{{- partial "title.html" . -}}" />
+  <meta property="og:description" content="{{ .Description | default .Summary | default .Site.Params.Description }}" />
+  <meta property="og:image" content="{{ $pageImage }}" />
+   
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:domain" value="{{ replaceRE "^https?://([^/]+).*" "$1" .Site.BaseURL }}" />
+  <meta name="twitter:title" value="{{- partial "title.html" . -}}" />
+  <meta name="twitter:description" value="{{ .Description | default .Summary | default .Site.Params.Description }}" />
+  <meta name="twitter:image" content="{{ $pageImage }}" />
+  <meta name="twitter:url" value="{{ .Permalink }}" />
+{{- if eq .Type "posts" }}
+  <meta name="twitter:label1" value="Reading Time" />
+  <meta name="twitter:data1" value="{{ .ReadingTime }} mins" />
+{{ end -}}
