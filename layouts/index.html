@@ -1,7 +1,7 @@
 {{ define "main" }}
 {{ $pages := where site.RegularPages "Type" "in" site.Params.mainSections }}
 <section class="h-feed">
-  {{ partial "h-card.html" . }}
+  {{ partial "expanded-h-card.html" . }}
 
   <aside class="h-feed-description hidden" aria-hidden="true">
     <h1 class="p-name"><a href="/h-feed" rel="feed" class="u-url u-uid">GeeksAreForLife.com</a></h1>
@@ -33,6 +33,7 @@
             <span>
               {{ .ReadingTime }} min read
             </span>
+            <a class="u-author" href="/"></a>
           </div>
           <p class="p-summary mt-3 leading-6">
             {{ .Summary }}
