@@ -1,11 +1,11 @@
-<article class="mb-10">
-  <a href="{{ .RelPermalink }}" class="block">
-    <h2 class="leading-7 mb-2 hover:text-current">
+<article class="h-entry mb-10">
+  <a href="{{ .RelPermalink }}" class="u-url u-uid block">
+    <h2 class="p-name leading-7 mb-2 hover:text-current">
       {{ .Title }}
     </h2>
   </a>
   <div class="text-sm leading-5 text-gray-500">
-    <time datetime="{{ .Date.Format "2006-01-02" }}">
+    <time datetime="{{ .Date }}" class="dt-published">
       {{ .Date.Format "January" }}
       {{ .Date.Format "2" | humanize}},
       {{ .Date.Format "2006" }}
@@ -17,7 +17,7 @@
       {{ .ReadingTime }} min read
     </span>
   </div>
-  <p class="mt-4 leading-6">
+  <p class="p-summary mt-4 leading-6">
     {{ .Summary }}
   </p>
   {{ with .Params.tags }}

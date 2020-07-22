@@ -1,24 +1,28 @@
 {{ define "main" }}
 {{ $pages := where site.RegularPages "Type" "in" site.Params.mainSections }}
-<section><!-- this will be the h-feed container -->
+<section class="h-feed">
   {{ partial "h-card.html" . }}
+
+  <aside class="h-feed-description hidden" aria-hidden="true">
+    <h1 class="p-name"><a href="/h-feed" rel="feed" class="u-url u-uid">GeeksAreForLife.com</a></h1>
+  </aside>
 
   <div class="mt-12 grid gap-5 lg:grid-cols-3 lg:max-w-none">
     {{ range first 3 $pages }}
-    <article class="flex flex-col rounded-lg shadow-lg overflow-hidden">
-      <a href="{{ .RelPermalink }}" class="block text-current hover:text-current hover:no-underline">
+    <article class="h-entry flex flex-col rounded-lg shadow-lg overflow-hidden">
+      <a href="{{ .RelPermalink }}" class="u-url u-uid block text-current hover:text-current hover:no-underline">
       <div class="flex-shrink-0">
-        <img class="h-32 w-full object-cover" src="{{ .Params.Hero }}" alt="" />
+        <img class="u-photo h-32 w-full object-cover" src="{{ .Params.Hero }}" alt="" />
       </div>
       <div class="flex-1 bg-white p-6 flex flex-col justify-between">
         <div class="flex-1">
           
-            <h2 class="mt-2 leading-7 mb-2 hover:text-orange-400 hover:underline">
+            <h2 class="p-name mt-2 leading-7 mb-2 hover:text-orange-400 hover:underline">
               {{ .Title }}
             </h2>
           
           <div class="text-sm leading-5 text-gray-500">
-            <time datetime="{{ .Date.Format "2006-01-02" }}">
+            <time datetime="{{ .Date }}">
               {{ .Date.Format "January" }}
               {{ .Date.Format "2" | humanize}},
               {{ .Date.Format "2006" }}
@@ -65,6 +69,7 @@
       </ul>
     </div>
 
+  </div>
 
 </section>
 
