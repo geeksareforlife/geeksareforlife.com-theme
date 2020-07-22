@@ -22,7 +22,7 @@
             </h2>
           
           <div class="text-sm leading-5 text-gray-500">
-            <time datetime="{{ .Date }}">
+            <time datetime="{{ .Date }}" class="dt-published">
               {{ .Date.Format "January" }}
               {{ .Date.Format "2" | humanize}},
               {{ .Date.Format "2006" }}
@@ -34,7 +34,7 @@
               {{ .ReadingTime }} min read
             </span>
           </div>
-          <p class="mt-3 leading-6">
+          <p class="p-summary mt-3 leading-6">
             {{ .Summary }}
           </p>
         </div>
