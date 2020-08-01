@@ -1,0 +1,17 @@
+{{ if isset .context.Site.Data.contacts .user  -}}
+  {{- $contact := index .context.Site.Data.contacts .user -}}
+  {{- $icon := "" -}}
+  {{- if eq $contact.type "person" -}}
+    {{- $icon = "fas fa-user" -}}
+  {{- else if eq $contact.type "organisation" -}}
+    {{- $icon = "far fa-building" -}}
+  {{- else if eq $contact.type "venue" -}}
+    {{- $icon = "far fa-map-marker-alt" -}}
+  {{- end -}}
+    <a href="{{ $contact.url}}" class="h-card {{ .class | default "" }} {{ $contact.type }} whitespace-no-wrap">
+      <span class="{{ $icon }} text-sm mx-1"></span>
+      {{ $contact.name }}
+    </a>
+{{ else }}
+  <span class="bg-red-700 text-white">Contact Not Found ({{ .user }})</span>
+{{ end }}
