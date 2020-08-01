@@ -12,8 +12,8 @@
   {{ end -}}
   {{- if .Params.author }}
   <meta name="author" content="{{ .Params.author}}" />
-  {{- else if .Site.Params.author }}
-  <meta name="author" content="{{ .Site.Params.author}}" />
+  {{- else if .Site.Author.name }}
+  <meta name="author" content="{{ .Site.Author.name}}" />
   {{ end -}}
   {{- if .Site.Params.Copyright }}
   <meta name="copyright" content="{{ .Site.Params.Copyright}}" />
@@ -21,7 +21,7 @@
   {{ hugo.Generator }}
 
   {{ partial "unfurl.html" . }}
-
+  
   <link rel="authorization_endpoint" href="https://indieauth.com/auth">
   
   <link href="https://fonts.googleapis.com/css?family=Oxygen:300,400,700" rel="stylesheet">
