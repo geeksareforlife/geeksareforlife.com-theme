@@ -1,0 +1,11 @@
+{{ define "main" }}
+
+<div id="fullMap" class="h-screen"></div>
+
+<script>
+  var popup = '<h4>{{ .Title }}</h4>{{ .Content }}<p>Visited: {{ .Date.Format "2" | humanize}} {{ .Date.Format "January" }} {{ .Date.Format "2006" }} @ {{ .Date.Format "15:04" }}';
+  var lat = {{ .Params.lat }};
+  var long = {{ .Params.long }};
+</script>
+
+{{ end }}
