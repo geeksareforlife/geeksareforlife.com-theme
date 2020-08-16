@@ -3,6 +3,9 @@
   <article class="max-w-full lg:flex-1 lg:mr-8 lg:max-w-3/4">
     <h1 class="p-name">{{ .Title }}</h1>
     <h6>{{ .ReadingTime }} mins</h6>
+    {{ if .Params.hero }}
+    <img src="{{ .Params.hero }}" class="mb-4 rounded-lg">
+    {{ end }}
     <div class="e-content">
       {{ .Content }}
     </div>
