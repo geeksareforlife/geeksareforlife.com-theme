@@ -8,6 +8,7 @@ const purgecss = require('@fullhuman/postcss-purgecss')({
         themeDir + 'content/**/*.html',
         'layouts/**/*.html',
         'content/**/*.html',
+        'content/**/*.md',
         'exampleSite/layouts/**/*.html',
         'exampleSite/content/**/*.html',
     ],
