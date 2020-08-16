@@ -1,0 +1,9 @@
+{{ define "main" }}
+<h1>
+  Posts
+</h1>
+
+{{ range .Pages }}
+  {{ partial "basic-post.html" . }}
+{{ end }}
+{{ end }}

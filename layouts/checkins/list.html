@@ -1,17 +1,30 @@
 {{ define "main" }}
-<h1>
-  Checkins
-</h1>
+<h1>Trig Points</h1>
 
-{{ range .Pages }}
-  <article class="h-entry mb-10">
-    <a href="{{ .RelPermalink }}" class="u-url u-uid block">
-       <time datetime="{{ .Date }}" class="dt-published">
-      {{ .Date.Format "January" }}
-      {{ .Date.Format "2" | humanize}},
-      {{ .Date.Format "2006 @ 15:04" }}
-    </time>
-    </a>
-  </article>
+<div id="fullMap" class="h-screen"></div>
+
+{{ $trigs := .Site.RegularPages.RelatedTo ( keyVals "tags" "trig point" ) }}
+
+
+<script>
+  var trigs = {};
+{{ range $trigs.GroupByParam "tp" }}
+  trigs[ {{- trim .Key " " -}} ] = {
+  
+    visited: {{ len .Pages }},
+  
+  {{ range first 1 .Pages }}
+    name: {{ .Title }},
+    last: "{{ .Date.Format "2" | humanize}} {{ .Date.Format "January" }} {{ .Date.Format "2006" }} @ {{ .Date.Format "15:04" }}",
+    content: {{ .Content }},
+    lat: {{ .Params.lat }},
+    long: {{ .Params.long }}
+  {{ end }}
+  
+  }
+  
 {{ end }}
+</script>
+
+
 {{ end }}

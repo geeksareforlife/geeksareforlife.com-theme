@@ -1,12 +1,16 @@
 {{ define "main" }}
 <h1>
-  Articles
+  Items
 {{- if eq .Type "tags" }}
   in <span class="far fa-tag ml-1 px-1"></span>{{ .Title }}
 {{- end -}}
 </h1>
 
 {{ range .Pages }}
-  {{ partial "basic-post.html" . }}
+  {{ if eq .Type "articles" }}
+    {{ partial "basic-post.html" . }}
+  {{ else }}
+    {{ .Type }}
+  {{ end }}
 {{ end }}
 {{ end }}
