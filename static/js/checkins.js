@@ -29,12 +29,12 @@ function showManyPoints() {
 
   var popup = "";
   for (point in trigs) {
-    popup = '<h4>' + trigs[point]["name"] + '</h4>' + trigs[point]["content"];
-    popup += '<p>Visited ' + trigs[point]["visited"] + " time";
+    popup = '<h4>' + trigs[point]["name"] + ' (' + trigs[point]["point"] + ')</h4>';
+    popup += '<p><a href="' + trigs[point]["listUrl"] + '">Visited ' + trigs[point]["visited"] + " time";
     if (trigs[point]["visited"] > 1) {
-      popup += "s";
+      popup += 's'; 
     }
-    popup += "<br>Last Visited: " + trigs[point]["last"] + "</p>";
+    popup += "</a><br>Last Visited: " + trigs[point]["last"] + "</p>";
     L.circleMarker([trigs[point]["lat"], trigs[point]["long"]], {radius: 2}).addTo(mymap).bindPopup(popup);
   }
 }

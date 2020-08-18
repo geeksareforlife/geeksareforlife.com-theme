@@ -1,0 +1,27 @@
+{{ define "main" }}
+<h1>Trig Points</h1>
+
+<div id="fullMap" class="h-screen"></div>
+
+<script>
+  var trigs = {};
+  {{ range .Data.Terms.Alphabetical }}
+  trigs[ {{- .Term -}} ] = {
+    point: {{ .Term | upper }},
+    name: {{ .Page.Params.point }},
+    visited: {{ .Count }},
+    listUrl: {{ .Page.RelPermalink }},
+    info: {{ .Page.Params.info }},
+    lat: {{ .Page.Params.lat }},
+    long: {{ .Page.Params.long }},
+  
+  {{ range first 1 .WeightedPages }}
+    last: "{{ .Date.Format "2" | humanize}} {{ .Date.Format "January" }} {{ .Date.Format "2006" }} @ {{ .Date.Format "15:04" }}"
+  {{ end }}
+  
+  }
+  
+{{ end }}
+</script>
+
+{{ end }}

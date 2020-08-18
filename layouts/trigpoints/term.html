@@ -1,0 +1,47 @@
+{{ define "main" }}
+
+<div id="fullMap" class="h-screen-50 mb-6"></div>
+
+{{ $title := .Title | printf "%s (%s)" .Params.Point }}
+{{ $lat := .Params.lat }}
+{{ $long := .Params.long }}
+
+<section class="h-feed">
+{{ range .Pages }}
+  <article class="h-entry mb-10">
+  <a href="{{ .RelPermalink }}" class="u-url u-uid block">
+    <h2 class="leading-7 mb-2 hover:text-current">
+      <time datetime="{{ .Date }}" class="dt-published">
+        {{ .Date.Format "January" }}
+        {{ .Date.Format "2" | humanize}},
+        {{ .Date.Format "2006" }}
+      </time>
+    </h2>
+  </a>
+  <p class="p-name hidden">{{ $title }}</p>
+  <span class="u-checkin h-geo p-location hidden">
+    <span class="p-latitude">{{ $lat }}</span>, <span class="p-longitude">{{ $long }}</span>
+  </span>
+  <p class="e-content mt-4 leading-6">
+    {{ .Content }}
+  </p>
+  <a class="u-author" href="/"></a>
+  {{ with .Params.tags }}
+  <ul id="tags" class="ml-0 mt-6">
+  {{ range . }}
+    {{ partial "tag.html" . }}
+  {{ end }}
+  </ul>
+  {{ end }}
+</article>
+{{ end }}
+</section>
+
+<script>
+  var popup = '<h4>{{ $title }} )</h4><p><a href="{{ .Params.Info }}">Trigpointing Info Page</a></p>';
+  var lat = {{ $lat }};
+  var long = {{ $long }};
+</script>
+
+
+{{ end }}

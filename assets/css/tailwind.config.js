@@ -29,6 +29,13 @@ module.exports = {
         '10/12' : '83.333333%',
         '11/12' : '91.666667%'
       },
+      height: {
+        'screen-25' : '25vh',
+        'screen-33' : '33vh',
+        'screen-50' : '50vh',
+        'screen-66' : '66vh',
+        'screen-75' : '75vh',
+      },
       fontFamily: {
         'main': ['Oxygen', 'Helvetica', 'Arial', 'sans-serif']
       }
