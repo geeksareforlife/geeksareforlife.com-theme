@@ -1,10 +1,19 @@
 {{ define "main" }}
-<h1>
-  Items
-{{- if eq .Type "tags" }}
-  in <span class="far fa-tag ml-1 px-1"></span>{{ .Title }}
-{{- end -}}
-</h1>
+<section class="h-feed">
+<div class="h-feed-description">
+  <h1 class="p-name">
+    <a href="{{ .RelPermalink }}" rel="feed" class="u-url u-uid">
+      Items
+      {{- if eq .Type "tags" }}
+        in <span class="far fa-tag ml-1 px-1"></span>{{ .Title }}
+      {{- end -}}
+    </a>
+  </h1>
+</div>
+
+<div class="hidden">
+  {{- partial "hcard.html" (dict "context" . "user" .Site.Author.user "class" "p-author") -}}
+</div>
 
 {{ range .Pages }}
   {{ if eq .Type "articles" }}
@@ -13,4 +22,6 @@
     {{ .Type }}
   {{ end }}
 {{ end }}
+</section>
+
 {{ end }}

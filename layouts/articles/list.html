@@ -1,9 +1,20 @@
 {{ define "main" }}
-<h1>
-  Posts
-</h1>
+<section class="h-feed">
+<div class="h-feed-description">
+  <h1 class="p-name">
+    <a href="{{ .RelPermalink }}" rel="feed" class="u-url u-uid">
+      Posts
+    </a>
+  </h1>
+</div>
+
+<div class="hidden">
+  {{- partial "hcard.html" (dict "context" . "user" .Site.Author.user "class" "p-author") -}}
+</div>
 
 {{ range .Pages }}
   {{ partial "basic-post.html" . }}
 {{ end }}
+</section>
+
 {{ end }}
