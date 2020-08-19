@@ -18,6 +18,8 @@
 {{ range .Pages }}
   {{ if eq .Type "articles" }}
     {{ partial "basic-post.html" . }}
+  {{ else if eq .Type "checkins" }}
+    {{ partial "basic-checkin.html" . }}
   {{ else }}
     {{ .Type }}
   {{ end }}

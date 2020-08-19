@@ -1,0 +1,44 @@
+{{ $title := "" }}
+{{ $lat := "" }}
+{{ $long := "" }}
+
+{{ $trigs := .GetTerms "trigpoints" }}
+{{ if gt (len $trigs) 0 }}
+  {{ range first 1 $trigs }}
+    {{ $title = .Title | printf "%s (%s)" .Params.Point }}
+    {{ $lat = .Params.lat }}
+    {{ $long = .Params.long }}
+  {{ end }}
+{{ end }}
+
+<article class="h-entry mb-10">
+  <a href="{{ .RelPermalink }}" class="u-url u-uid block">
+    <h2 class="p-name leading-7 mb-2 hover:text-current">
+      {{ $title }}
+    </h2>
+  </a>
+  <div class="text-sm leading-5 text-gray-500">
+    <time datetime="{{ .Date }}" class="dt-published">
+      {{ .Date.Format "January" }}
+      {{ .Date.Format "2" | humanize}},
+      {{ .Date.Format "2006" }}
+    </time>
+    <span class="mx-1">
+      &middot;
+    </span>
+    <span class="u-checkin h-geo p-location">
+      <span class="p-latitude">{{ $lat }}</span>, <span class="p-longitude">{{ $long }}</span>
+    </span>
+    <a class="u-author" href="/"></a>
+  </div>
+  <p class="e-content mt-4 leading-6">
+    {{ .Content }}
+  </p>
+  {{ with .Params.tags }}
+  <ul id="tags" class="ml-0 mt-6">
+  {{ range . }}
+    {{ partial "tag.html" . }}
+  {{ end }}
+  </ul>
+  {{ end }}
+</article>
