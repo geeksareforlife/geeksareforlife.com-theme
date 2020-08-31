@@ -31,7 +31,7 @@ function showSinglePoint() {
 }
 
 function showManyPoints() {
-  var mymap = L.map('fullMap').setView([52.921711, -1.472167], 10);
+  var mymap = L.map('fullMap').setView([52.921711, -1.472167], 9);
 
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
